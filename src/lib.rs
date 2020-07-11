@@ -36,11 +36,3 @@ pub async fn get_og_data(url: String) -> Result<JsValue, JsValue> {
 
     Ok(JsValue::from(og_data_json))
 }
-
-// #[tokio::main]
-// async fn main() {
-//     let res = get_og_data("https://nicopellerin.io".to_string())
-//         .await
-//         .unwrap();
-//     println!("OG IMG: {:?}", res);
-// }
