@@ -12,7 +12,7 @@ struct OgData {
 }
 
 #[wasm_bindgen]
-pub fn get_og_data(html: String) -> JsValue {
+pub fn parse_og_data(html: String) -> JsValue {
     let fragment = Html::parse_fragment(html.as_str());
     let og_image = Selector::parse("meta[property='og:image']").unwrap();
     let og_title = Selector::parse("meta[property='og:title']").unwrap();
