@@ -1,4 +1,3 @@
-#[allow(unused_variables)]
 extern crate wasm_bindgen;
 
 use scraper::{Html, Selector};
