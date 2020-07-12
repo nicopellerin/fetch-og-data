@@ -2,10 +2,10 @@
 extern crate wasm_bindgen;
 
 use scraper::{Html, Selector};
-use serde::{Deserialize, Serialize};
+use serde::Serialize;
 use wasm_bindgen::prelude::*;
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Debug)]
 struct OgData {
     title: String,
     desc: String,
