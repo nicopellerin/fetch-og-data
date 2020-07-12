@@ -1,7 +1,6 @@
 #[allow(unused_variables)]
 extern crate wasm_bindgen;
 
-use reqwest;
 use scraper::{Html, Selector};
 use serde::{Deserialize, Serialize};
 use wasm_bindgen::prelude::*;
@@ -14,10 +13,8 @@ struct OgData {
 }
 
 #[wasm_bindgen]
-pub async fn get_og_data(url: String) -> Result<JsValue, JsValue> {
-    let res = reqwest::get(&url).await.unwrap().text().await.unwrap();
-
-    let fragment = Html::parse_fragment(res.as_str());
+pub async fn get_og_data(html: String) -> Result<JsValue, JsValue> {
+    let fragment = Html::parse_fragment(html.as_str());
     let og_image = Selector::parse("meta[property='og:image']").unwrap();
     let og_title = Selector::parse("meta[property='og:title']").unwrap();
     let og_description = Selector::parse("meta[property='og:description']").unwrap();
