@@ -13,7 +13,7 @@ struct OgData {
 }
 
 #[wasm_bindgen]
-pub async fn get_og_data(html: String) -> Result<JsValue, JsValue> {
+pub fn get_og_data(html: String) -> JsValue {
     let fragment = Html::parse_fragment(html.as_str());
     let og_image = Selector::parse("meta[property='og:image']").unwrap();
     let og_title = Selector::parse("meta[property='og:title']").unwrap();
@@ -31,5 +31,5 @@ pub async fn get_og_data(html: String) -> Result<JsValue, JsValue> {
 
     let og_data_json = serde_json::to_string(&og_data).unwrap();
 
-    Ok(JsValue::from(og_data_json))
+    JsValue::from(og_data_json)
 }
